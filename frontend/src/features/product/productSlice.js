@@ -4,7 +4,7 @@ import {
   fetchProductsByFilters,
   fetchBrands,
   fetchCategories,
-  fetchProductsById,
+  fetchProductById,
 } from "./productAPI";
 
 const initialState = {
@@ -25,10 +25,10 @@ export const fetchAllProductsAsync = createAsyncThunk(
   }
 );
 
-export const fetchAllProductsByIdAsync = createAsyncThunk(
-  "product/fetchProductsById",
+export const fetchAllProductByIdAsync = createAsyncThunk(
+  "product/fetchProductById",
   async (id) => {
-    const response = await fetchProductsById(id);
+    const response = await fetchProductById(id);
     // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
@@ -51,7 +51,6 @@ export const fetchBrandsAsync = createAsyncThunk(
     return response.data;
   }
 );
-
 export const fetchCategoriesAsync = createAsyncThunk(
   "product/fetchCategories",
   async () => {
@@ -100,10 +99,10 @@ export const productSlice = createSlice({
         state.status = "idle";
         state.categories = action.payload;
       })
-      .addCase(fetchAllProductsByIdAsync.pending, (state) => {
+      .addCase(fetchAllProductByIdAsync.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(fetchAllProductsByIdAsync.fulfilled, (state, action) => {
+      .addCase(fetchAllProductByIdAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.selectedProduct = action.payload;
       });
@@ -113,9 +112,9 @@ export const productSlice = createSlice({
 export const { increment } = productSlice.actions;
 
 export const selectAllProducts = (state) => state.product.products;
-export const selectTotalItems = (state) => state.product.totalItems;
 export const selectBrands = (state) => state.product.brands;
 export const selectCategories = (state) => state.product.categories;
-export const selectedProductById = (state) => state.product.selected;
+export const selectProductById = (state) => state.product.selectedProduct;
+export const selectTotalItems = (state) => state.product.totalItems;
 
 export default productSlice.reducer;
