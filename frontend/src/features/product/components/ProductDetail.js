@@ -3,7 +3,7 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllProductByIdAsync, selectProductById } from "../productSlice";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom"; 
 
 // TODO: In server data we will add colors, sizes , highlights. to each product
 
