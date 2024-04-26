@@ -8,25 +8,8 @@ import {
 } from "../features/cart/cartSlice";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { selectLoggedInUser, updateUserAsync } from "../features/auth/authSlice";
 
-const addresses = [
-  {
-    name: "Chinmay Barik",
-    street: "Pataudi Road",
-    city: "Gurugram",
-    pinCode: "122001",
-    state: "Haryana",
-    phone: "6394008835",
-  },
-  {
-    name: "John Doe",
-    street: "11th main",
-    city: "Gurugram",
-    pinCode: "110001",
-    state: "Haryana",
-    phone: "1231231231",
-  },
-];
 function Checkout() {
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
@@ -46,6 +29,7 @@ function Checkout() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const user = useSelector(selectLoggedInUser);
   const [open, setOpen] = useState(true);
   return (
     <>
@@ -59,8 +43,7 @@ function Checkout() {
               onSubmit={handleSubmit((data) => {
                 console.log(data);
                 dispatch(
-                  
-                  // checkUserAsync({ email: data.email, password: data.password })
+                  updateUserAsync({...user, addresses: [...user.addresses, data]})
                 );
               })}
             >
@@ -232,7 +215,7 @@ function Checkout() {
                     Choose from Existing addresses
                   </p>
                   <ul role="list" className="divide-y divide-gray-100">
-                    {addresses.map((address) => (
+                    {user.addresses.map((address) => (
                       <li
                         key={address.email}
                         className="flex justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"

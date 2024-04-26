@@ -2338,21 +2338,35 @@
     {
       "email": "Test@gmail.com",
       "password": "Testing@123",
+      "addresses": [],
       "id": 1
     },
     {
       "email": "Testing@gmail.com",
       "password": "Test@123",
+      "addresses": [
+        {
+          "name": "Chinmay Barik",
+          "email": "chinmaybarik214@gmail.com",
+          "phone": "6394008835",
+          "street": "Pataudi Road",
+          "city": "Gurugram",
+          "state": "Harayana",
+          "pinCode": "122001"
+        }
+      ],
       "id": 2
     },
     {
       "email": "abcd@gmail.com",
       "password": "Qwert@123",
+      "addresses": [],
       "id": 3
     },
     {
       "email": "Chinmay@gmail.com",
       "password": "Abcd@1234",
+      "addresses": [],
       "id": 4
     }
   ],
