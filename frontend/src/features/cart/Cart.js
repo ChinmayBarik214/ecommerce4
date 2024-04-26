@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+  deleteItemFromCartAsync,
   selectItems,
   updateCartAsync,
 } from "./cartSlice";
@@ -20,6 +21,9 @@ export default function Cart() {
   const handleQuantity = (e, item) => {
     dispatch(updateCartAsync({ ...item, quantity: +e.target.value }));
   };
+  const handleRemove = (e, id) => {
+    dispatch(deleteItemFromCartAsync(id))
+  }
 
   return (
     <>
@@ -72,6 +76,7 @@ export default function Cart() {
 
                         <div className="flex">
                           <button
+                            onClick={(e) => handleRemove(e, item.id)}
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                           >
