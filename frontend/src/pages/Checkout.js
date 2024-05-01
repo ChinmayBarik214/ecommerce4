@@ -37,6 +37,9 @@ function Checkout() {
     console.log(e.target.value);
     setPaymentMethod(e.target.value);
   };
+  const handleOrder = (e) => {
+    setPaymentMethod(e.target.value);
+  };
   const {
     register,
     handleSubmit,
@@ -400,12 +403,12 @@ function Checkout() {
                   Shipping and taxes calculated at checkout.
                 </p>
                 <div className="mt-6">
-                  <Link
-                    to="/checkout"
+                  <div
+                    onClick={handleOrder}
                     className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                   >
-                    Checkout
-                  </Link>
+                    Order now
+                  </div>
                 </div>
                 <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                   <p>
