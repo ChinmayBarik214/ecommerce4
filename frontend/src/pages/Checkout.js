@@ -8,7 +8,10 @@ import {
 } from "../features/cart/cartSlice";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { selectLoggedInUser, updateUserAsync } from "../features/auth/authSlice";
+import {
+  selectLoggedInUser,
+  updateUserAsync,
+} from "../features/auth/authSlice";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -18,15 +21,26 @@ function Checkout() {
     0
   );
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
+  const [selectedAddress, setSelectedAddress] = useState(null);
+  const [paymentMethod, setPaymentMethod] = useState("cash");
   const handleQuantity = (e, item) => {
     dispatch(updateCartAsync({ ...item, quantity: +e.target.value }));
   };
   const handleRemove = (e, id) => {
     dispatch(deleteItemFromCartAsync(id));
   };
+  const handleAddress = (e) => {
+    console.log(e.target.value);
+    setSelectedAddress(user.addresses[e.target.value]);
+  };
+  const handlePayment = (e) => {
+    console.log(e.target.value);
+    setPaymentMethod(e.target.value);
+  };
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const user = useSelector(selectLoggedInUser);
@@ -43,8 +57,12 @@ function Checkout() {
               onSubmit={handleSubmit((data) => {
                 console.log(data);
                 dispatch(
-                  updateUserAsync({...user, addresses: [...user.addresses, data]})
+                  updateUserAsync({
+                    ...user,
+                    addresses: [...user.addresses, data],
+                  })
                 );
+                reset();
               })}
             >
               <div className="space-y-12">
@@ -215,15 +233,17 @@ function Checkout() {
                     Choose from Existing addresses
                   </p>
                   <ul role="list" className="divide-y divide-gray-100">
-                    {user.addresses.map((address) => (
+                    {user.addresses.map((address, index) => (
                       <li
-                        key={address.email}
+                        key={index}
                         className="flex justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"
                       >
                         <div className="flex min-w-0 gap-x-4">
                           <input
+                            onChange={handleAddress}
                             name="address"
                             type="radio"
+                            value={index}
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
                           <div className="min-w-0 flex-auto">
@@ -263,7 +283,10 @@ function Checkout() {
                           <input
                             id="cash"
                             name="payments"
+                            onChange={handlePayment}
+                            value="cash"
                             type="radio"
+                            checked={paymentMethod === "cash"}
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
                           <label
@@ -276,8 +299,11 @@ function Checkout() {
                         <div className="flex items-center gap-x-3">
                           <input
                             id="card"
+                            onChange={handlePayment}
                             name="payments"
+                            value="card"
                             type="radio"
+                            checked={paymentMethod === "card"}
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
                           <label
