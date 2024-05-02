@@ -2470,6 +2470,66 @@
       "paymentMethod": "cash",
       "selectedAddress": null,
       "id": 1
+    },
+    {
+      "items": [
+        {
+          "title": "Samsung Universe 9",
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "price": 1249,
+          "discountPercentage": 15.46,
+          "rating": 4.09,
+          "stock": 36,
+          "brand": "Samsung",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/3/1.jpg"
+          ],
+          "quantity": 1,
+          "user": 2,
+          "id": 10
+        }
+      ],
+      "totalAmount": 1249,
+      "totalItems": 1,
+      "user": {
+        "email": "Testing@gmail.com",
+        "password": "Test@123",
+        "addresses": [
+          {
+            "name": "Chinmay Barik",
+            "email": "chinmaybarik214@gmail.com",
+            "phone": "6394008835",
+            "street": "Pataudi Road",
+            "city": "Gurugram",
+            "state": "Harayana",
+            "pinCode": "122001"
+          },
+          {
+            "name": "Rohan Singh",
+            "email": "rohan@gmail.com",
+            "phone": "1234567891",
+            "street": "11th street",
+            "city": "New York",
+            "state": "USA",
+            "pinCode": "99501"
+          }
+        ],
+        "id": 2
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Chinmay Barik",
+        "email": "chinmaybarik214@gmail.com",
+        "phone": "6394008835",
+        "street": "Pataudi Road",
+        "city": "Gurugram",
+        "state": "Harayana",
+        "pinCode": "122001"
+      },
+      "status": "pending",
+      "id": 2
     }
   ]
 }
