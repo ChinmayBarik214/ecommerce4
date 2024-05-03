@@ -55,6 +55,7 @@ export default function Login() {
               </label>
               <div className="mt-2">
                 <input
+                tabIndex={1}
                   id="email"
                   {...register("email", {
                     required: "email is required",
@@ -91,6 +92,7 @@ export default function Login() {
               </div>
               <div className="mt-2">
                 <input
+                tabIndex={2}
                   id="password"
                   {...register("password", {
                     required: "password is required",
@@ -107,6 +109,7 @@ export default function Login() {
 
             <div>
               <button
+                tabIndex={3}
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
