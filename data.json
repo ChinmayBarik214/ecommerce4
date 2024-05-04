@@ -2371,15 +2371,6 @@
           "city": "delhi",
           "state": "delhi",
           "pinCode": "1100030"
-        },
-        {
-          "name": "Abcd",
-          "email": "abcd@gmail.com",
-          "phone": "123456",
-          "street": "14th street",
-          "city": "Gurugram",
-          "state": "Haryana",
-          "pinCode": "122001"
         }
       ],
       "id": 2
