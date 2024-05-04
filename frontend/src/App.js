@@ -21,6 +21,8 @@ import PageNotFound from "./pages/404";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 import UserOrders from "./features/user/components/UserOrders";
 import UserOrdersPage from "./pages/UserOrdersPage";
+import UserProfile from "./features/user/components/UserProfile";
+import UserProfilePage from "./pages/UserProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -71,7 +73,12 @@ const router = createBrowserRouter([
     path: "/orders",
     element: (
       <UserOrdersPage />
-      // we will add page later right now using component directly
+    ),
+  },
+  {
+    path: "/profile",
+    element: (
+      <UserProfilePage />
     ),
   },
   {
