@@ -20,6 +20,7 @@ import { selectLoggedInUser } from "./features/auth/authSlice";
 import PageNotFound from "./pages/404";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 import UserOrders from "./features/user/components/UserOrders";
+import UserOrdersPage from "./pages/UserOrdersPage";
 
 const router = createBrowserRouter([
   {
@@ -69,7 +70,7 @@ const router = createBrowserRouter([
   {
     path: "/orders",
     element: (
-      <UserOrders />
+      <UserOrdersPage />
       // we will add page later right now using component directly
     ),
   },
