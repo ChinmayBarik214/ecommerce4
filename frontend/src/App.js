@@ -23,6 +23,7 @@ import UserOrders from "./features/user/components/UserOrders";
 import UserOrdersPage from "./pages/UserOrdersPage";
 import UserProfile from "./features/user/components/UserProfile";
 import UserProfilePage from "./pages/UserProfilePage";
+import { fetchLoggedInUserAsync } from "./features/user/userSlice";
 
 const router = createBrowserRouter([
   {
@@ -92,7 +93,8 @@ function App() {
   const user = useSelector(selectLoggedInUser);
   useEffect(() => {
     if (user) {
-      dispatch(fetchItemsByUserIdAsync(user.id));
+      dispatch(fetchItemsByUserIdAsync(user.id))
+      dispatch(fetchLoggedInUserAsync(user.id))
     }
   }, [dispatch, user]);
   return (
