@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 export default function ForgotPassword() {
@@ -29,7 +27,7 @@ export default function ForgotPassword() {
           <form
             noValidate
             onSubmit={handleSubmit((data) => {
-              console.log(data)
+              console.log(data);
               // TODO: implementation on backend with email
             })}
             className="space-y-6"
@@ -43,7 +41,7 @@ export default function ForgotPassword() {
               </label>
               <div className="mt-2">
                 <input
-                tabIndex={1}
+                  tabIndex={1}
                   id="email"
                   {...register("email", {
                     required: "email is required",
@@ -61,8 +59,6 @@ export default function ForgotPassword() {
               </div>
             </div>
 
-            
-
             <div>
               <button
                 tabIndex={3}
@@ -75,7 +71,7 @@ export default function ForgotPassword() {
           </form>
 
           <p className="mt-10 text-center text-sm text-gray-500">
-            Send me back to {" "}
+            Send me back to{" "}
             <Link
               to="/login"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"

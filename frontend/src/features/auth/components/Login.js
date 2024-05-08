@@ -1,12 +1,5 @@
-import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  checkUserAsync,
-  increment,
-  incrementAsync,
-  selectError,
-  selectLoggedInUser,
-} from "../authSlice";
+import { checkUserAsync, selectError, selectLoggedInUser } from "../authSlice";
 import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -55,7 +48,7 @@ export default function Login() {
               </label>
               <div className="mt-2">
                 <input
-                tabIndex={1}
+                  tabIndex={1}
                   id="email"
                   {...register("email", {
                     required: "email is required",
@@ -92,7 +85,7 @@ export default function Login() {
               </div>
               <div className="mt-2">
                 <input
-                tabIndex={2}
+                  tabIndex={2}
                   id="password"
                   {...register("password", {
                     required: "password is required",
