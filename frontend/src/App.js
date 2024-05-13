@@ -1,9 +1,11 @@
 import { Counter } from "./features/counter/Counter";
 import "tailwindcss/tailwind.css";
+import "./App.css";
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
 import ProductDetailPage from "./pages/ProductDetailPage";
@@ -19,28 +21,40 @@ import UserProfilePage from "./pages/UserProfilePage";
 import { fetchLoggedInUserAsync } from "./features/user/userSlice";
 import Logout from "./features/auth/components/Logout";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import ProtectedAdmin from "./features/auth/components/ProtectedAdmin";
+import AdminHome from "./pages/AdminHome";
+import AdminProductDetailPage from "./pages/AdminProductDetailPage";
+import AdminProductFormPage from "./pages/AdminProductFormPage";
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <Protected>
-        <Home />
+        <Home></Home>
       </Protected>
     ),
   },
   {
+    path: "/admin",
+    element: (
+      <ProtectedAdmin>
+        <AdminHome></AdminHome>
+      </ProtectedAdmin>
+    ),
+  },
+  {
     path: "/login",
-    element: <LoginPage />,
+    element: <LoginPage></LoginPage>,
   },
   {
     path: "/signup",
-    element: <SignupPage />,
+    element: <SignupPage></SignupPage>,
   },
   {
     path: "/cart",
     element: (
       <Protected>
-        <CartPage />
+        <CartPage></CartPage>
       </Protected>
     ),
   },
@@ -48,7 +62,7 @@ const router = createBrowserRouter([
     path: "/checkout",
     element: (
       <Protected>
-        <Checkout />
+        <Checkout></Checkout>
       </Protected>
     ),
   },
@@ -56,33 +70,57 @@ const router = createBrowserRouter([
     path: "/product-detail/:id",
     element: (
       <Protected>
-        <ProductDetailPage />
+        <ProductDetailPage></ProductDetailPage>
       </Protected>
     ),
   },
   {
+    path: "/admin/product-detail/:id",
+    element: (
+      <ProtectedAdmin>
+        <AdminProductDetailPage></AdminProductDetailPage>
+      </ProtectedAdmin>
+    ),
+  },
+  {
+    path: "/admin/product-form",
+    element: (
+      <ProtectedAdmin>
+        <AdminProductFormPage></AdminProductFormPage>
+      </ProtectedAdmin>
+    ),
+  },
+  {
+    path: "/admin/product-form/edit/:id",
+    element: (
+      <ProtectedAdmin>
+        <AdminProductFormPage></AdminProductFormPage>
+      </ProtectedAdmin>
+    ),
+  },
+  {
     path: "/order-success/:id",
-    element: <OrderSuccessPage />,
+    element: <OrderSuccessPage></OrderSuccessPage>,
   },
   {
     path: "/orders",
-    element: <UserOrdersPage />,
+    element: <UserOrdersPage></UserOrdersPage>,
   },
   {
     path: "/profile",
-    element: <UserProfilePage />,
+    element: <UserProfilePage></UserProfilePage>,
   },
   {
     path: "/logout",
-    element: <Logout />,
+    element: <Logout></Logout>,
   },
   {
     path: "/forgot-password",
-    element: <ForgotPasswordPage />,
+    element: <ForgotPasswordPage></ForgotPasswordPage>,
   },
   {
     path: "*",
-    element: <PageNotFound />,
+    element: <PageNotFound></PageNotFound>,
   },
 ]);
 
@@ -98,9 +136,12 @@ function App() {
   }, [dispatch, user]);
 
   return (
-    <div className="App">
-      <RouterProvider router={router} />
-    </div>
+    <>
+      <div className="App">
+        <RouterProvider router={router} />
+        {/* Link must be inside the Provider */}
+      </div>
+    </>
   );
 }
 

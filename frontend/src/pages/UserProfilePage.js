@@ -1,4 +1,4 @@
-import NavBar from "../features/navbar/navbar";
+import NavBar from "../features/navbar/Navbar";
 import UserProfile from "../features/user/components/UserProfile";
 
 
