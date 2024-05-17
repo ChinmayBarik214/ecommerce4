@@ -7,7 +7,7 @@
       "price": 549,
       "discountPercentage": 12.96,
       "rating": 4.69,
-      "stock": 94,
+      "stock": 0,
       "brand": "Apple",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
@@ -35,7 +35,8 @@
         "https://cdn.dummyjson.com/product-images/2/2.jpg",
         "https://cdn.dummyjson.com/product-images/2/3.jpg",
         "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 3,
@@ -48,7 +49,8 @@
       "brand": "Samsung",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"]
+      "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"],
+      "deleted": true
     },
     {
       "id": 4,
@@ -1426,9 +1428,7 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"
-      ]
+      "images": ["https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"]
     },
     {
       "id": 79,
@@ -1441,9 +1441,7 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/79/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/79/1.jpg"
-      ]
+      "images": ["https://cdn.dummyjson.com/product-images/79/1.jpg"]
     },
     {
       "id": 80,
@@ -2384,7 +2382,28 @@
       "id": 3
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "title": "Huawei P30",
+      "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+      "price": 499,
+      "discountPercentage": 10.58,
+      "rating": 4.09,
+      "stock": 32,
+      "brand": "Huawei",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/5/1.jpg",
+        "https://i.dummyjson.com/data/products/5/2.jpg",
+        "https://i.dummyjson.com/data/products/5/3.jpg"
+      ],
+      "productId": 5,
+      "quantity": 1,
+      "user": 2,
+      "id": 1
+    }
+  ],
   "orders": [
     {
       "items": [
@@ -2525,9 +2544,7 @@
           "brand": "Samsung",
           "category": "smartphones",
           "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/3/1.jpg"
-          ],
+          "images": ["https://i.dummyjson.com/data/products/3/1.jpg"],
           "quantity": 2,
           "user": 2
         },
@@ -2785,9 +2802,7 @@
           "brand": "Samsung",
           "category": "smartphones",
           "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/3/1.jpg"
-          ],
+          "images": ["https://i.dummyjson.com/data/products/3/1.jpg"],
           "quantity": 1,
           "user": 2,
           "id": 1
@@ -2856,9 +2871,7 @@
           "brand": "Samsung",
           "category": "smartphones",
           "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/3/1.jpg"
-          ],
+          "images": ["https://i.dummyjson.com/data/products/3/1.jpg"],
           "quantity": 1,
           "user": 2,
           "id": 1
