@@ -12,7 +12,6 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  console.log(errors);
 
   return (
     <>
