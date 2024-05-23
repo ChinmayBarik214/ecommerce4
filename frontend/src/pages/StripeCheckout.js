@@ -16,19 +16,19 @@ const stripePromise = loadStripe(
 
 export default function StripeCheckout() {
   const [clientSecret, setClientSecret] = useState("");
-  const currentOrder = useSelector(selectCurrentOrder)
+  const currentOrder = useSelector(selectCurrentOrder);
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:8080/create-payment-intent", {
+    fetch("/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ totalAmount: currentOrder.totalAmount }),
       meta: {
-        order_id: currentOrder.id
+        order_id: currentOrder.id,
         // this info will go to stripe => and then to our webhook
         // so we can conclude that payment was successfull, even if client closes window after pay
-      }
+      },
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
