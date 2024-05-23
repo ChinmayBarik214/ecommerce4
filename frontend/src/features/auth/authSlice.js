@@ -6,6 +6,7 @@ const initialState = {
   loggedInUserToken: null, // this should only contain user identity => 'id'/'role'
   status: "idle",
   error: null,
+  userChecked: false,
 };
 
 export const createUserAsync = createAsyncThunk(
@@ -30,17 +31,14 @@ export const loginUserAsync = createAsyncThunk(
   }
 );
 
-export const checkAuthAsync = createAsyncThunk(
-  "user/checkAuth",
-  async () => {
-    try {
-      const response = await checkAuth();
-      return response.data;
-    } catch (error) {
-      console.log(error);
-    }
+export const checkAuthAsync = createAsyncThunk("user/checkAuth", async () => {
+  try {
+    const response = await checkAuth();
+    return response.data;
+  } catch (error) {
+    console.log(error);
   }
-);
+});
 
 export const signOutAsync = createAsyncThunk(
   "user/signOut",
@@ -88,11 +86,17 @@ export const authSlice = createSlice({
       .addCase(checkAuthAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.loggedInUserToken = action.payload;
+        state.userChecked = true;
+      })
+      .addCase(checkAuthAsync.rejected, (state, action) => {
+        state.status = "idle";
+        state.userChecked = true;
       })
   },
 });
 
 export const selectLoggedInUser = (state) => state.auth.loggedInUserToken;
 export const selectError = (state) => state.auth.error;
+export const selectUserChecked = (state) => state.auth.userChecked;
 
 export default authSlice.reducer;
