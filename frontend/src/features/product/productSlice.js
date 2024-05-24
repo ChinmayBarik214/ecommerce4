@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
+  fetchAllProducts,
   fetchProductsByFilters,
   fetchBrands,
   fetchCategories,
@@ -129,7 +130,6 @@ export const productSlice = createSlice({
         );
         state.products[index] = action.payload;
         state.selectedProduct = action.payload;
-
       });
   },
 });

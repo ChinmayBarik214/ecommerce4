@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
-import { loginUserAsync, selectError, selectLoggedInUser } from "../authSlice";
+import { selectError, selectLoggedInUser } from "../authSlice";
 import { Link, Navigate } from "react-router-dom";
+import { loginUserAsync } from "../authSlice";
 import { useForm } from "react-hook-form";
 
 export default function Login() {
@@ -118,7 +119,7 @@ export default function Login() {
               to="/signup"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             >
-              Create an account
+              Create an Account
             </Link>
           </p>
         </div>

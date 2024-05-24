@@ -10,7 +10,8 @@ import { selectCurrentOrder } from "../features/order/orderSlice";
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
-  const currentOrder = useSelector(selectCurrentOrder)
+  const currentOrder = useSelector(selectCurrentOrder);
+
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -60,7 +61,8 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `/order-success/${currentOrder.id}`,
+        // Our repo name is 'ecommerce-backend' instead of his 'mern-ecommerce'
+        return_url: `https://ecommerce-backend-phi-eight.vercel.app/order-success/${currentOrder.id}`,
       },
     });
 

@@ -29,7 +29,6 @@ function ProductForm() {
   const selectedProduct = useSelector(selectProductById);
   const [openModal, setOpenModal] = useState(null);
   const alert = useAlert();
-
   useEffect(() => {
     if (params.id) {
       dispatch(fetchProductByIdAsync(params.id));
@@ -87,6 +86,8 @@ function ProductForm() {
             product.id = params.id;
             product.rating = selectedProduct.rating || 0;
             dispatch(updateProductAsync(product));
+            alert.success("Product Updated");
+
             reset();
           } else {
             dispatch(createProductAsync(product));
@@ -108,6 +109,7 @@ function ProductForm() {
                   This product is deleted
                 </h2>
               )}
+
               <div className="sm:col-span-6">
                 <label
                   htmlFor="title"
@@ -461,15 +463,17 @@ function ProductForm() {
           </button>
         </div>
       </form>
-      {selectedProduct && <Modal
-        title={`Delete ${selectedProduct?.title}`}
-        message="Are you sure you want to delete this Product ?"
-        dangerOption="Delete"
-        cancelOption="Cancel"
-        dangerAction={handleDelete}
-        cancelAction={() => setOpenModal(null)}
-        showModal={openModal}
-      ></Modal>}
+      {selectedProduct && (
+        <Modal
+          title={`Delete ${selectedProduct?.title}`} // ? here not in original
+          message="Are you sure you want to delete this Product ?"
+          dangerOption="Delete"
+          cancelOption="Cancel"
+          dangerAction={handleDelete}
+          cancelAction={() => setOpenModal(null)}
+          showModal={openModal}
+        ></Modal>
+      )}
     </>
   );
 }

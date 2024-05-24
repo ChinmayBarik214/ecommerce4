@@ -91,12 +91,14 @@ export const authSlice = createSlice({
       .addCase(checkAuthAsync.rejected, (state, action) => {
         state.status = "idle";
         state.userChecked = true;
-      })
+      });
   },
 });
 
 export const selectLoggedInUser = (state) => state.auth.loggedInUserToken;
 export const selectError = (state) => state.auth.error;
 export const selectUserChecked = (state) => state.auth.userChecked;
+
+// export const { } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -7,6 +7,7 @@ export default function ForgotPassword() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   console.log(errors);
 
   return (
@@ -28,7 +29,7 @@ export default function ForgotPassword() {
             noValidate
             onSubmit={handleSubmit((data) => {
               console.log(data);
-              // TODO: implementation on backend with email
+              // TODO : implementation on backend with email
             })}
             className="space-y-6"
           >
@@ -41,7 +42,6 @@ export default function ForgotPassword() {
               </label>
               <div className="mt-2">
                 <input
-                  tabIndex={1}
                   id="email"
                   {...register("email", {
                     required: "email is required",
@@ -61,7 +61,6 @@ export default function ForgotPassword() {
 
             <div>
               <button
-                tabIndex={3}
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >

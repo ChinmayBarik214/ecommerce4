@@ -22,7 +22,7 @@ export function fetchItemsByUserId() {
 
 export function updateCart(update) {
   return new Promise(async (resolve) => {
-    const response = await fetch("/cart/" + update.item, {
+    const response = await fetch("/cart/" + update.id, {
       method: "PATCH",
       body: JSON.stringify(update),
       headers: { "content-type": "application/json" },

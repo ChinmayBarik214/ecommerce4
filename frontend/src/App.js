@@ -10,7 +10,7 @@ import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import Protected from "./features/auth/components/Protected";
-import { useDebugValue, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   checkAuthAsync,
@@ -32,11 +32,13 @@ import AdminProductFormPage from "./pages/AdminProductFormPage";
 import AdminOrdersPage from "./pages/AdminOrdersPage";
 import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
-import StripeCheckout from "./pages/StripeCheckout"
+import StripeCheckout from "./pages/StripeCheckout";
+
 const options = {
   timeout: 5000,
-  position: positions.BOTTOM_CENTER,
+  position: positions.BOTTOM_LEFT,
 };
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -127,7 +129,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/orders",
+    path: "/my-orders",
     element: (
       <Protected>
         <UserOrdersPage></UserOrdersPage>{" "}
@@ -144,9 +146,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/stripe-checkout/",
-    element: (<Protected>
-      <StripeCheckout></StripeCheckout>
-    </Protected>),
+    element: (
+      <Protected>
+        <StripeCheckout></StripeCheckout>
+      </Protected>
+    ),
   },
   {
     path: "/logout",
@@ -166,9 +170,11 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
   const userChecked = useSelector(selectUserChecked);
+
   useEffect(() => {
     dispatch(checkAuthAsync());
   }, [dispatch]);
+
   useEffect(() => {
     if (user) {
       dispatch(fetchItemsByUserIdAsync());

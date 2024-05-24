@@ -44,7 +44,10 @@ export default function UserProfile() {
   };
 
   const handleAdd = (address) => {
-    const newUser = { ...userInfo, addresses: [...userInfo.addresses, address] };
+    const newUser = {
+      ...userInfo,
+      addresses: [...userInfo.addresses, address],
+    };
     dispatch(updateUserAsync(newUser));
     setShowAddAddressForm(false);
   };
@@ -272,7 +275,7 @@ export default function UserProfile() {
 
           <p className="mt-0.5 text-sm text-gray-500">Your Addresses :</p>
           {userInfo.addresses.map((address, index) => (
-            <div>
+            <div key={index}>
               {selectedEditIndex === index ? (
                 <form
                   className="bg-white px-5 py-12 mt-12"
@@ -468,7 +471,7 @@ export default function UserProfile() {
                       <button
                         onClick={(e) => setSelectedEditIndex(-1)}
                         type="submit"
-                        className="rounded-md px-3 py-2 text-sm font-semibold text-gray shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="rounded-md px-3 py-2 text-sm font-semibold text-grey shadow-sm hover:bg-grey-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                       >
                         Cancel
                       </button>

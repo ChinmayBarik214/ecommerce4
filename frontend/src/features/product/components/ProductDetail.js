@@ -61,11 +61,11 @@ export default function ProductDetail() {
       console.log({ items, product });
       const newItem = {
         product: product.id,
-        quantity: 1
+        quantity: 1,
       };
       dispatch(addToCartAsync(newItem));
       // TODO: it will be based on server response of backend
-      alert.success('Item added to Cart');
+      alert.success("Item added to Cart");
     } else {
       alert.error("Item Already added");
     }
@@ -334,13 +334,6 @@ export default function ProductDetail() {
                   Add to Cart
                 </button>
               </form>
-              <button
-                onClick={() => {
-                  alert.show("Oh look, an alert!");
-                }}
-              >
-                Show alert
-              </button>
             </div>
 
             <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
