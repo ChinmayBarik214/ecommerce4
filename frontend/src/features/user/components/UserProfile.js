@@ -55,13 +55,10 @@ export default function UserProfile() {
   return (
     <div>
       <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-          <h1 className="text-4xl my-5 font-bold tracking-tight text-gray-900">
-            Name: {userInfo.name ? userInfo.name : "New User"}
+        <div className="border-gray-200 px-4 py-6 sm:px-6">
+          <h1 className="text-2xl my-5 font-bold tracking-tight text-gray-900">
+            Email address: {userInfo.email}
           </h1>
-          <h3 className="text-xl my-5 font-bold tracking-tight text-red-900">
-            email address : {userInfo.email}
-          </h3>
           {userInfo.role === "admin" && (
             <h3 className="text-xl my-5 font-bold tracking-tight text-red-900">
               role : {userInfo.role}
